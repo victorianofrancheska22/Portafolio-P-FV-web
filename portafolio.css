@@ -1,0 +1,248 @@
+/* ===== Variables (paleta) ===== */
+:root {
+  --floral-white: #FFF9F2;
+  --pastel-pink: #FFCAD0;
+  --racing-red: #F10222;
+  --crushed-berry: #892325;
+  --rich-mahogany: #250202;
+
+  --primary-color: var(--racing-red);
+  --bg-light: var(--floral-white);
+  --text-light: var(--rich-mahogany);
+  --bg-dark: var(--rich-mahogany);
+  --text-dark: var(--floral-white);
+
+  /* Color de TODOS los iconos de las secciones (cámbialos aquí) */
+  --icon-color: #892325;        /* modo claro: Crushed Berry */
+  --icon-color-dark: #FFCAD0;   /* modo oscuro: Pastel Pink */
+  
+  
+
+  /* Bootstrap usa estas para text-primary, border-primary, etc. */
+  --bs-primary: #F10222;
+  --bs-primary-rgb: 241, 2, 34;
+  --bs-danger-rgb: 241, 2, 34;
+  --bs-info-rgb: 137, 35, 37;
+}
+
+/* ===== Base ===== */
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section[id] { scroll-margin-top: 70px; }
+
+/* Accesibilidad: foco visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--rich-mahogany);
+  outline-offset: 3px;
+}
+
+/* ===== Modo claro ===== */
+.bg-light { background-color: var(--floral-white) !important; }
+.text-dark { color: var(--text-light) !important; }
+
+.navbar.bg-primary { background-color: var(--crushed-berry) !important; }
+.navbar .navbar-brand,
+.navbar .nav-link { color: var(--floral-white); }
+.navbar .nav-link:hover { color: var(--pastel-pink); }
+
+.btn-primary {
+  --bs-btn-bg: var(--racing-red);
+  --bs-btn-border-color: var(--racing-red);
+  --bs-btn-hover-bg: var(--crushed-berry);
+  --bs-btn-hover-border-color: var(--crushed-berry);
+  --bs-btn-active-bg: var(--rich-mahogany);
+  --bs-btn-active-border-color: var(--rich-mahogany);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-color: #fff;
+}
+
+.card {
+  background-color: var(--floral-white);
+  color: var(--text-light);
+  box-shadow: 0 4px 12px rgba(37, 2, 2, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--racing-red);
+  box-shadow: 0 0 0 0.25rem rgba(241, 2, 34, 0.25);
+}
+
+/* ===== ICONOS (todos los de las secciones) ===== */
+/* Incluye: iconos de títulos, Sobre Mí, Experiencia y redes sociales.
+   No toca los iconos del navbar, del botón de enviar ni del footer. */
+main i.text-primary,
+main i.text-info,
+main i.text-dark,
+main i.text-danger {
+  color: var(--icon-color) !important;
+}
+
+/* ===== Hero (portada) - estático, sin movimiento ===== */
+.hero {
+  padding-top: 70px;
+  background-color: var(--crushed-berry);
+  background-image:
+    radial-gradient(rgba(255, 249, 242, 0.10) 1.5px, transparent 1.5px),        /* puntos */
+    radial-gradient(circle at 15% 20%, rgba(241, 2, 34, 0.45), transparent 50%), /* brillo rojo */
+    radial-gradient(circle at 85% 80%, rgba(255, 202, 208, 0.20), transparent 45%), /* brillo rosado */
+    linear-gradient(160deg, #892325 0%, #250202 100%);                           /* base */
+  background-size: 28px 28px, auto, auto, auto;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+}
+.hero-img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--pastel-pink);
+}
+.hero-title,
+.hero-lead {
+  color: var(--floral-white);
+  opacity: 0;
+  animation: fadeInUp 1.5s ease forwards;
+  text-shadow: 0 2px 8px rgba(37, 2, 2, 0.5);
+}
+.hero-lead { animation-delay: 0.4s; max-width: 700px; }
+
+/* ===== Proyectos ===== */
+.project-card {
+  border: 2px solid var(--primary-color);
+  overflow: hidden;
+  animation: heartbeat 3s ease-in-out infinite;
+}
+.project-card:hover {
+  animation: none;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(37, 2, 2, 0.35);
+}
+.project-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+
+.project-card .btn-primary {
+  background-color: var(--rich-mahogany) !important;
+  border-color: var(--rich-mahogany) !important;
+  border-width: 4px;
+}
+
+.project-card .btn-primary:hover {
+  background-color: var(--crushed-berry)!important;
+  border-color: var(--rich-mahogany) !important;
+
+}
+
+/* ===== Experiencia ===== */
+.experience-card {
+  border-width: 2px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.experience-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(37, 2, 2, 0.25);
+}
+/* Botón Enviar Mensaje */
+#contactForm button[type="submit"] {
+  background-color: var(--racing-red) !important;
+  border-color: var(--racing-red) !important;
+}
+
+#contactForm button[type="submit"]:hover {
+  background-color: var(--crushed-berry) !important;
+  border-color: var(--crushed-berry) !important;
+}
+/* ===== Redes ===== */
+.social-links a { display: inline-block; transition: transform 0.2s ease; }
+.social-links a:hover { transform: scale(1.2); }
+
+/* ===== Footer ===== */
+footer.bg-dark {
+  background-color: var(--rich-mahogany) !important;
+  color: var(--floral-white) !important;
+}
+
+/* ===== Keyframes ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.02); }
+}
+
+/* ===== MODO DARK ===== */
+body.dark {
+  --bg-light: #250202;
+  --text-light: #FFF9F2;
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+body.dark .bg-light { background: var(--bg-dark) !important; }
+body.dark .card {
+  background: var(--crushed-berry);
+  color: var(--text-dark);
+  border-color: var(--primary-color);
+}
+body.dark .navbar {
+  background: var(--bg-dark) !important;
+  border-bottom: 1px solid var(--crushed-berry);
+}
+body.dark .navbar-brand,
+body.dark .nav-link { color: var(--text-dark) !important; }
+body.dark i { color: var(--text-dark); }
+body.dark .text-dark { color: var(--text-light) !important; }
+
+/* Iconos de las secciones en modo oscuro */
+body.dark main i.text-primary,
+body.dark main i.text-info,
+body.dark main i.text-dark,
+body.dark main i.text-danger {
+  color: var(--icon-color-dark) !important;
+}
+
+/* Refuerzos de coherencia en dark */
+body.dark .text-muted,
+body.dark .form-label { color: var(--text-dark) !important; }
+body.dark .form-control {
+  background-color: var(--crushed-berry);
+  color: var(--text-dark);
+  border-color: var(--racing-red);
+}
+body.dark .form-control::placeholder { color: var(--pastel-pink); }
+body.dark .navbar-toggler { border-color: rgba(255, 249, 242, 0.6); }
+body.dark .experience-card { border-color: var(--primary-color) !important; }
+body.dark footer.bg-dark { border-top: 1px solid var(--crushed-berry); }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero-img { width: 150px; height: 150px; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-lead { font-size: 1rem; }
+  .project-card .card-img-top { height: 170px; }
+  h2 { font-size: 1.75rem; }
+}
+
+/* Movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-title, .hero-lead { opacity: 1; }
+}
